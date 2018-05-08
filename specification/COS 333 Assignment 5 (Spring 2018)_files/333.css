@@ -1,0 +1,37 @@
+body, table {
+  font-family:  Helvetica, Arial, sans-serif;
+  line-height: 20px;
+  font-size: 14px;
+  #background-color: #FFFFFF;
+}
+p, br {
+  #padding-left: 15px;
+}
+h3 {
+  padding-top: 20px;
+  font-size: 20px;
+  font-weight: 700;
+}
+h4 {
+  font-size: 15px;
+  font-weight: 700;
+}
+pre {
+    #display: block;
+    padding: 9.5px;
+    margin: 5px 0 10px;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #111;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: #fffcfb;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+code, kbd, pre, samp {
+  font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+}
+ul.li {
+  list-style-type:square;
+}

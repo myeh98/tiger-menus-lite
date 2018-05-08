@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    {% for list in lists %}
+      <div class="col-sm-2">
+        <h3>{{list[0]}}</h3>
+        {% for item in list[1] %}
+          {% if false %}
+          <b><p>{{ item }}</p></b>
+          {% else %}
+          <p>{{ item }}</p>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

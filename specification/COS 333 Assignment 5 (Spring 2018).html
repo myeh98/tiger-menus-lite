@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <link rel="stylesheet" href="./COS 333 Assignment 5 (Spring 2018)_files/333.css">
+
+        <title>COS 333 Assignment 6 (Spring 2018)</title>
+    </head>
+
+    <body>
+
+        <h3> COS 333 Assignment 6: TigerMenus Lite (Spring 2019)</h3>
+        <p><b><font color="red"> 
+            Due midnight, Friday, March 30 (after break)
+        </font></b></p>
+        
+        <p><font size="-1">Sun Mar  4 09:57:39 EST 2018</font></p>
+        
+        <h3> Introduction </h3>
+
+        <p> 
+            This assignment serves as an introduction to web development 
+            in the context of building and deploying a simple web application
+            similar to the popular student app 
+            <a href="https://tigermenus.herokuapp.com/">TigerMenus</a>.
+        </p>
+    
+        <p> You will creating a site that 
+            displays Colonial, Charter, and Butler lunches
+            on the left and dinners on the right
+            by extracting data from a variety of sources 
+            across the web. You will be using standard Python tools
+            to do this such as the requests and BeautifulSoup packages.
+            You will then present this information on a webpage 
+            using Flask and host it on Heroku.
+        </p>
+    
+        <figure>
+          <img src="lite.png" alt="lite" width="640" >
+          <figcaption>What you will create.</figcaption>
+        </figure>
+
+    <p>
+        As a reminder, here are help files for 
+<a href="http://www.cs.princeton.edu/courses/archive/spring18/cos333/python.help">
+    Python
+        </a> 
+from previous assignments.  
+        You might also
+        reference the lecture notes on Bash and Python. And don't neglect the 
+    <a href="https://docs.python.org/3.5/tutorial/index.html">
+        official Python tutorial.
+        </a></p>
+
+<p> You will be running this website first on your own laptop in a Linux environment,
+    then on Heroku.
+
+</p><h3>Linux Environment Setup</h3>
+
+<p>
+It is easiest to develop a Python web application in a Linux environment since 
+that is the same environment as Heroku. If you already running a flavor of Linux or 
+Mac OS X, you are fine. 
+</p>
+    
+    <h4>Windows</h4>
+    
+    <p>
+        If you are running Windows, a possible 
+Linux environment is using the 
+        <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">Windows Subsystem for Linux (WSL)</a> 
+        and 
+just running an Ubuntu bash shell similar to the one on CourseLab. If you decide to use WSL, make 
+        sure to open a shell and run
+    </p>
+    
+<pre>sudo apt-get update
+sudo apt-get upgrade
+</pre>
+    
+    <p>after installing to update your package list and upgrade any that need upgrading. 
+    This will take a while, so feel free to open a second Ubuntu shell and 
+    continue with this assignment.</p>
+    <p>Just opening a shell will open it in the Linux root directory. The command</p>
+    
+    <pre>cd ../../mnt/c/Users/Public/Documents</pre>
+    <p>will take you to the Public Documents folder on your Windows partition.
+    WSL will give you issues if the directory has spaces, so if you named your user
+    something like 'Brian Kernighan', you will have issues doing stuff in that directory. 
+    This is why we use the Public folder.</p>
+        
+        <p>You can open a bash shell in a specific folder by typing <tt>bash</tt> in
+        the address bar of a folder in file explorer and pressing <tt>Enter.</tt></p>
+    <h5>WSL Ubuntu Protip:</h5>
+        <p>The <tt>~/.bashrc</tt> contains a list of commands that run at the beginning whenever you start a bash shell. You can add the above command to the bottom of the file if you don't want to type it out every time you open bash. You can edit it with <tt>nano ~/.bashrc</tt> (<tt>nano</tt> is just a light shell text editor.)</p>
+        
+   
+    
+    <h4>Setup</h4>
+        <p>Unzip the assignment folder. Open a shell <b>in</b> the folder.</p>
+    
+    <p>To set up the application, run these commands:</p>
+    <pre>$ python3 -m venv venv
+$ . venv/bin/activate
+(venv) $ pip install --upgrade pip
+(venv) $ pip install -r requirements.txt
+</pre>
+    
+        <p>
+        The first line creates a Python virtual environment in a folder called <tt>venv</tt>. We create a virtual environment for each app because we don't want to install 
+            python packages globablly because it might cause version conflicts between different apps. (This only needs to be run one time per app. When you next open a shell in a project folder just activate the already created venv.)
+        </p>
+        
+        <p>The second line activates the virtual environment. You can tell it is activated because <tt>(venv)</tt> appears at the beginning of the shell prompt. You can deactivate the virtual environment by typing <tt>deactivate.</tt></p>
+        
+        <p>The third line upgrades <tt>pip</tt>, the standard way of installing python packages.</p>
+        
+        <p>The fourth line installs all the apps dependencies (make sure you are in the venv!), located in the <tt>requirements.txt</tt> file. You can also <tt>pip install</tt> each 
+        package separately, e.g. <tt>pip install Flask</tt>, etc.</p>
+        
+        <p>Then, run the application.</p>
+    <pre>(venv) $ python run.py</pre>
+    <p>Then open <a href="http://localhost:5000/">http://localhost:5000/</a> and see 6 empty columns.</p>
+    <p>Your task will be to generate the data that fills those columns.</p>
+        
+        <p>You can quit the server with <tt>Ctrl+C</tt></p>
+        
+        <h5>Protip</h5>
+    
+    <p>To automate the process of creating and activating a virtual environement, you can alias  </p>
+    
+    <pre>alias venv='python3 -m venv venv && . venv/bin/activate && pip install --upgrade pip'</pre>
+
+    
+<h3>Getting Familiar With Flask Application Structure</h3>
+
+    <p>
+        Now look at the code and try to understand what's going on.
+        You do not need a perfect understanding of Flask application
+        structure, but feel free to read the 
+        <a href="http://flask.pocoo.org/docs/0.12/">official docs</a>
+        or the
+        <a href="https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world">
+        Flask Mega Tutorial</a>.
+        (You do not need more than beyond chapter 2).
+    </p>
+        
+            <iframe width="720" height="405" src="https://www.youtube.com/embed/BNmgWSHi_3o"
+            allowfullscreen>
+</iframe>
+    
+
+    <p>You create an app with one line. You run the app with one line. And you write functions that correspond to urls like:</p>
+        <pre>@app.route('/hello')
+def hello():
+    return '&lt;p&gt;Hello World!&lt;/p&gt;'</pre>
+    <p>Basically, if you're unsure of how to do something, documentation
+    and StackOverflow are your friend. And don't forget the <tt>help()</tt> function.</p>
+    
+    <h3>Lets Start!</h3>
+<p>When you're done with each part, be sure to run <tt>test.py</tt> or <tt>test_scrape.py</tt> to test the appropriate functions
+    against hardcoded example outputs. Right now, you fail everything.
+    </p>
+        <p>And open <a href="http://localhost:5000/">http://localhost:5000/</a> 
+            to see more columns filled in!</p>
+        
+        <p>A reference implementation is at 
+        <a href="http://tigermenuslite.herokuapp.com/">
+            http://tigermenuslite.herokuapp.com/</a>
+            
+        </p>
+
+
+        
+        <h4>1. getButler() in app/routes.py</h4>
+        
+        <p>Try to figure out how to use the TigerMenus API and extract the Butler menus. (Hint: Butler is first.)</p>
+            <p>
+        Here is an example API get request, that returns JSON: 
+        <a href="http://tigermenus.herokuapp.com/api/9/13/2017">
+            http://tigermenus.herokuapp.com/api/9/13/2017</a>
+        </p>
+        
+        <p>You should use the Python 
+        <a href="http://docs.python-requests.org/en/master/">
+            requests</a> module.
+        </p>
+        
+        <p>A video of me using the requests module to query TigerMenu's 2nd API is 
+        
+            here: (This is a different API than the one you will be using!)
+        </p>
+        
+                <iframe width="720" height="405" src="https://www.youtube.com/embed/HCi6lgAMnmA"
+            allowfullscreen>
+</iframe>
+        
+        <p>Once you convert the JSON to a python dictionary, you can pretty print
+        it using the <tt>pprint</tt> library to a more readable format 
+        to try to figure out the structure.</p>
+        
+        
+        
+         <h4>2. getColonial() in app/routes.py</h4>
+        
+        <p>Get familiar with the <tt>colonial</tt> list in <tt>colonial.py</tt></p>
+        
+        <p>You can open the colonial list to play with in a python interpreter with</p>
+        
+        <pre>python -i app/colonial.py</pre>
+        
+        <p>Extract the information you need, following the format in <tt>test.py</tt>,
+        meaning surround -- category -- with dashes.</p>
+        
+        <p>HINT: be careful of lunch vs brunch!</p>
+        
+        <h4>3. app/templates/index.html</h4>
+        
+        <p>Look at the HTML Templating code:</p>
+        
+<pre>{% for item in list[1] %}
+  {% if false %}
+  &lt;b&gt;&lt;p&gt;{{ item }}&lt;/p&gt;&lt;/b&gt;
+  {% else %}
+  &lt;p&gt;{{ item }}&lt;/p&gt;
+  {% endif %}
+{% endfor %}
+</pre>
+        
+        <p>Basically, it's a for loop in HTML that gets passed a list of strings in "list[1]."</p>
+        
+        <p>Each "item" is a string. Replace the "false" condition on line 10 with a condition that will make strings that start with the '-' character bold.</p>
+        
+        <p>Inside the braces is basically just Python.</p>
+        
+        <p>Open the site and make sure the -- categories -- are bold.</p>
+        
+        <h4>4. scrape.py</h4>
+        
+        <p>Read the 
+            <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">
+            official BeautifulSoup documentation
+            </a>.
+            </p>
+        
+        <p>
+        Then figure out how to scrape the html files in the charter folder by filling in the <tt>scrape</tt> function. You can test it against <tt>charter/2017-09-11.html</tt> by running <tt>test_scrape.py</tt>
+        </p>
+        
+        <p>Look for how to extract the information you need by inspecting the HTML in Chrome.</p>
+        <p>You might run into a problem with duplicated data. If you do, pay close attention to the HTML. There is hidden text.</p>
+        <p>Also be careful of lunch vs brunch.</p>
+
+
+    
+        <p>This is an example of me scraping Campus Dining using BeautifulSoup:</p>
+    
+    
+    
+        <iframe width="720" height="405" src="https://www.youtube.com/embed/EWX6m4q9i48"
+            allowfullscreen>
+</iframe>
+        
+        <h4>5. Heroku</h4>
+    
+When you pass all the tests, YOU'RE DONE! Now try uploading to Heroku.
+
+<h3>Submission and Evaluation </h3>
+
+<p>
+Submit your files 
+using the dropbox link
+ <a href="https://dropbox.cs.princeton.edu/COS333_S2019/asgn6">
+https://dropbox.cs.princeton.edu/COS333_S2019/asgn6</a>. 
+
+
+</p>
+    </body>
+</html>

@@ -1,0 +1,181 @@
+
+
+@media print {
+    
+    @page { 
+    //margin: 0;
+    margin-top: 0.75in;
+    margin-bottom: 0;
+    margin-left: 0.75in;
+    margin-right: 0; 
+}
+    
+    /* default print margins */
+
+    .header-buffer{
+        display: none !important;
+    }
+.btn {
+    display: none;
+}
+
+.meal-name {
+    display:none;
+}
+
+.meal-descript {
+    display: none;
+}
+    
+    h1 {
+        display: none;
+    }
+h2 {
+    font-size: 3.0em;
+    display: none;
+}
+
+h3 {
+    display: none;
+    font-size: 2.0em;
+}
+    
+    h5 {
+        display: none;
+    }
+
+
+    
+.menu-type {
+    display: none;
+}
+    
+    .menu-meal, .menu-text {
+        min-height: inherit !important;
+        height: inherit !important;
+        overflow: hidden !important;
+        border: 0px !important;
+    }
+    
+    p {
+        padding: 0px;
+        margin: 0px;
+    }
+strong {
+    /* TODO: hacky */
+    display: none;
+}
+    
+ .div-left {
+     width: 3.5in;
+     overflow: hidden;
+     text-overflow: ellipsis;
+     padding: 0;
+    }
+    
+
+    .gs {
+        width: 1.7in !important;
+        height: 0.4125in !important;
+        display: block!important;
+        margin-top: 0.4in;
+        padding-left: 0.05in;
+
+
+    }
+    
+    .salad{
+        width:1.7in !important;
+        height: 0.5125in !important;
+        display: block !important;
+        margin-top: 0.3in;
+        padding-left: 0.05in;
+
+    }
+    
+    .brunch {
+        padding: 0.35in 0.05in 0.05in 0.05in;
+        width: 3.4in !important;
+        height: 1.225in !important;
+        text-overflow: ellipsis;
+        font-size: 0.1in;
+        
+
+
+
+    }
+
+    
+    .main-meal{
+        padding: 0.05in;
+        width:1.6in !important;
+        height: 1.525in !important;
+        margin-top: -1.625in !important;
+        margin-left: 1.75in !important;
+        display: block !important;
+        
+    }
+    
+    .old-holder{
+        display: none;
+    }
+    
+    .new-holder {
+        display: block !important;
+    }
+    
+.div-right {
+    width: 2.8in;
+    overflow: hidden;
+     text-overflow: ellipsis;
+    margin-left:3.5in;
+    margin-top: -1.625in;
+    height: 1.525in !important;
+    padding: 0.05in !important;
+    
+
+ }
+    .dinner {
+        height: 1.525in !important;
+        padding: 0in;
+        margin-top:0.05in;
+    }
+    hr {
+        display: none;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        margin-top: 1.5in; /*subtracted top margin */
+        
+    }
+    
+    
+    
+    .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+  padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+
+}
+    .row, .panel-body, .container{
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    .menu-day {
+        padding: 0;
+        margin: 0;
+        width: 82.34% !important;
+        margin-left:0.375in !important; /* subtracted base margin */
+        overflow: hidden;
+        height: 1.625in;
+        font-size: 0.13in;
+    }
+    
+    .footer, .credits, .text-muted{
+        display: none;
+    }
+}

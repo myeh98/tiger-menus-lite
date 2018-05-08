@@ -1,0 +1,231 @@
+/* Content specific styling */
+
+/*index.html*/
+#background-image {
+    display:block;
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
+}
+
+#president-message{
+    z-index:1;
+    background-color: white;
+    background-image: url(../img/pcc.png);
+    width:100vw;
+    min-height:100vh;
+    position:relative;
+
+    margin-top:100vh;
+}
+
+.prospective-meal-list{
+  font-size: 16px;
+}
+
+.cal-day-today {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.cal-day-today span[data-cal-date] {
+  color: #fff;
+}
+
+.cal-day-holiday span[data-cal-date] {
+  color: #fff;
+}
+
+.minimal-button {
+  background: transparent;
+  color:#fff;
+  margin: 10px;
+}
+
+/* events */
+
+.rsvp-text {
+  color:#aaa;
+}
+
+.event-info {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.event-row {
+  margin: 20px;
+}
+
+.event-listing li {
+  margin-bottom: 20px;
+}
+
+
+.event-listing h1, h2, h3, h4, h5 {
+  margin: 0;
+}
+
+.event-listing h3 {
+  margin-bottom: 0;
+}
+.event-listing p {
+  margin: 0 0 5px;
+}
+
+div.event-image {
+  height: 250px;
+  max-width: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.web-link{
+  color :#C6852A;
+}
+
+
+
+#cal-slide-content {
+  background-image: url("../img/skinny.png");
+}
+
+#cal-week-box {
+  border: 1px solid #e1e1e1;
+  border-right: 0px;
+  border-radius: 5px 0 0 5px;
+  background-color: rgba(255, 255, 255, 0.3);
+  text-align: right;
+}
+
+/*faceboard*/
+
+.faceboard-row {
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+.faceboard-title{
+  position:relative;
+  min-height:5em;
+}
+
+.faceboard-content{
+  position:absolute;
+  bottom:0.1em;
+  width:100%;
+  font-size: 1.2em;
+  font-weight: 400;
+
+}
+
+.text-centered {
+  text-align: center;
+}
+
+.faceboard-image-div {
+
+}
+
+.faceboard-photo {
+  height: 280px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.faceboard-filler {
+  height: 280px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+.thumb {
+    margin-bottom: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  .faceboard-photo {
+    height:160px;
+  }
+
+  .faceboard-filler {
+    height: 160px;
+  }
+  .thumb{
+    margin-bottom: 10px;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+}
+
+/* menu */
+
+.menu-pdf-btn {
+  font-size:10px;
+}
+.menu-day {
+  margin: 5px;
+}
+
+.menu-meal {
+  font-size: 0.80em;
+  min-height: 180px;
+}
+
+@media screen and (max-width: 768px) {
+  .menu-type {
+    font-size: 1em;
+    padding-top:10px;
+    margin-left:0px;
+    padding-left:0px;
+  }
+
+  .menu-day {
+    margin: 0px;
+    padding: 0px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .menu-type {
+    min-height: 180px;
+    padding-top: 70px;
+  }
+}
+.menu-text{
+  border-style: solid;
+  border-color: #000;
+  border-width:1px;
+  min-height: 180px;
+  padding-top: 5px;
+}
+
+.meal-special-note {
+  font-size:0.75em;
+}
+
+.menu-text > p {
+  margin-left: 5px;
+}
+
+
+
+section.information-block > p{
+  margin:10px;
+  margin-bottom: 15px;
+}
+
+/* flatpages (and some more)*/
+.header-photo {
+    width:100%;
+    height:300px;
+    overflow:hidden;
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
