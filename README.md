@@ -10,3 +10,5 @@ You will creating a site that displays Colonial, Charter, and Butler lunches on 
 ![lite](https://github.com/axu2/tiger-menus-lite/blob/master/specification/lite.png?raw=true)
 
 The full assignment specification is in the HTML file in the project.
+
+http://htmlpreview.github.io/?https://github.com/axu2/tiger-menus-lite/blob/master/specification/COS%20333%20Assignment%205%20(Spring%202018).html
