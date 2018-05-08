@@ -3,7 +3,9 @@
 
 ### Introduction
 
-This assignment serves as an introduction to web development in the context of building and deploying a simple web application similar to the popular student app [TigerMenus](https://tigermenus.herokuapp.com/).
+This assignment serves as an introduction to web development in the context of building and deploying a simple web application similar to the popular student app [TigerMenus](https://tigermenus.herokuapp.com/)
+
+[here is the full assignment specification](http://htmlpreview.github.io/?https://github.com/axu2/tiger-menus-lite/blob/master/specification/COS%20333%20Assignment%205%20(Spring%202018).html)
 
 You will creating a site that displays Colonial, Charter, and Butler lunches on the left and dinners on the right by extracting data from a variety of sources across the web. You will be using standard Python tools to do this such as the requests and BeautifulSoup packages. You will then present this information on a webpage using Flask and host it on Heroku.
 
@@ -11,4 +13,3 @@ You will creating a site that displays Colonial, Charter, and Butler lunches on 
 
 The full assignment specification is in the HTML file in the project.
 
-http://htmlpreview.github.io/?https://github.com/axu2/tiger-menus-lite/blob/master/specification/COS%20333%20Assignment%205%20(Spring%202018).html
